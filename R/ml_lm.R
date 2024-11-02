@@ -2,7 +2,7 @@ library(tidyverse)
 library(data.table)
 
 # load sjr data set
-data = fread("data/cit_sjr.csv", sep = ",")
+data = fread("./cit_sjr.csv", sep = ",")
 
 # transform variables accordingly
 data[,c("References", "MeSH", "Title", "Length", "Age")] = lapply(data[,c("References", "MeSH", "Title", "Length", "Age")], asinh)
@@ -34,6 +34,7 @@ rm(data, split_year, split_data)
 
 # Linear Model with continuous sjr values
 mod_lmc = lm(asinh(SJR) ~ ., data = train)
+length(coef(mod_lmc))
 
 summary(mod_lmc)
 

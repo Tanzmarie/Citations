@@ -4,7 +4,7 @@ library(pscl)
 library(MASS)
 
 # load data set 
-chunk = fread("data/cit.csv", sep = ",")
+chunk = fread("./cit.csv", sep = ",")
 
 
 # transform variables accordingly
